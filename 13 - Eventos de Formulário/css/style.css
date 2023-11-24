@@ -89,7 +89,11 @@
 }
 
 .change-background {
-  background-color: red;
+  background-color: pink;
+}
+
+.change-scale{
+  scale: 1.05;
 }
 
 @media (max-width: 600px) {
