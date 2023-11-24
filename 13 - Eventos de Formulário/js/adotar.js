@@ -16,8 +16,10 @@ const validarCampos = (nome, tel, email, renda, residencia, opcao) => {
   }
 
   if (renda == null) {
-    document.querySelector("#erro-renda").classList.add("msgm-erro--active");
-    control = false;
+    let elenmentoErro = document.createElement("#erro-renda");
+    elenmentoErro.classList.add("msgm-erro--active");
+   
+   
   }
 
   return control;
@@ -36,15 +38,18 @@ formulario.addEventListener("submit", (event) => {
   let renda = document.querySelector("input[name='renda']:checked");
   let residencia = document.querySelector("#residencia");
   let opcao = residencia.options[residencia.selectedIndex];
+  let intencao = document.querySelector("#intencao");
   console.log(renda);
 
-  if (validarCampos(nome, tel, email, renda, residencia, opcao)) {
+  if (validarCampos(nome, tel, email, renda, residencia, opcao, intencao)) {
     let adotante = {
-      nome: nome.value,
-      tel: telefone.value,
-      email: email.value,
+      nome: nome.value.trim(),
+      tel: telefone.value.trim(),
+      email: email.value.trim(),
       renda: renda.value,
       residencia: opcao.value,
+      intencao: intencao.value.trim(),
+      idAnimal: "1",
     };
 
     console.log(adotante);
