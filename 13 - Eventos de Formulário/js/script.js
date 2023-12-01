@@ -69,7 +69,9 @@ window.addEventListener("load", () => {
 
         elemento.lastElementChild.addEventListener("click", (event) => {
             event.preventDefault();
-            alert(elemento.lastElementChild.getAttribute("idAnimal"));
+            let animalselecionado = elemento.lastElementChild.getAttribute("idAnimal");
+            sessionStorage.setItem("idAnimal", animalSelecionado);
+            document.cookie = `idAnimal=${animalselecionado}`;
             window.location.href = "./adotar.html";
         });
     });
